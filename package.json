@@ -1,0 +1,26 @@
+{
+  "name": "perisian-merekod-statistik",
+  "version": "1.0.0",
+  "description": "Perisian untuk merekod dan menghasilkan report statistik kedalam file excel",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kamilzobri/perisian-merekod-statistik.git"
+  },
+  "author": "Kamil Zobri",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/kamilzobri/perisian-merekod-statistik/issues"
+  },
+  "homepage": "https://github.com/kamilzobri/perisian-merekod-statistik#readme",
+  "devDependencies": {
+    "electron": "^3.0.0"
+  },
+  "dependencies": {
+    "exceljs": "^1.6.2",
+    "lowdb": "^1.0.0"
+  }
+}

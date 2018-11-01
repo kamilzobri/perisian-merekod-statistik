@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Sistem Rekod Statistik by Kamil 01124136369</title>
+
+</head>
+
+<body style="user-select: none;">
+	<script src="database.js">
+	</script>
+	Belia<table border="1" width="100%">
+		<col style="width:20%">
+		<col style="width:20%">
+		<col style="width:20%">
+		<col style="width:20%">
+		<col style="width:20%">
+		<thead>
+			<tr>
+				<th></th>
+				<th>Melayu</th>
+				<th>Cina</th>
+				<th>India</th>
+				<th>Lain-lain</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<th>Pengguna:</th>
+				<td><input value="" id="melayuBeliaPenggunaSemasa" size="4" type=text disabled=true /></td>
+				<td><input value="" id="cinaBeliaPenggunaSemasa" size="4" type=text disabled=true /></td>
+				<td><input value="" id="indiaBeliaPenggunaSemasa" size="4" type=text disabled=true /></td>
+				<td><input value="" id="lainlainBeliaPenggunaSemasa" size="4" type=text disabled=true /></td>
+			</tr>
+			<tr>
+				<th>Pengunjung:</th>
+				<td><input value="" id="melayuBeliaPengunjungSemasa" size="4" type=text disabled=true /></td>
+				<td><input value="" id="cinaBeliaPengunjungSemasa" size="4" type=text disabled=true />
+				</td>
+				<td><input value="" id="indiaBeliaPengunjungSemasa" size="4" type=text disabled=true /></td>
+				<td><input value="" id="lainlainBeliaPengunjungSemasa" size="4" type=text disabled=true /></td>
+			</tr>
+			<tr>
+				<th>Ahli Baru</th>
+				<td><input value="" id="melayuBeliaAhliBaruSemasa" size="4" type=text disabled=true /></td>
+				<td><input value="" id="cinaBeliaAhliBaruSemasa" size="4" type=text disabled=true /></td>
+				<td><input value="" id="indiaBeliaAhliBaruSemasa" size="4" type=text disabled=true /></td>
+				<td><input value="" id="lainlainBeliaAhliBaruSemasa" size="4" type=text disabled=true /></td>
+			</tr>
+		</tbody>
+	</table>
+	Dewasa
+	<table border="1" width="100%">
+		<col style="width:20%">
+		<col style="width:20%">
+		<col style="width:20%">
+		<col style="width:20%">
+		<col style="width:20%">
+		<thead>
+			<tr>
+				<th></th>
+				<th>Melayu</th>
+				<th>Cina</th>
+				<th>India</th>
+				<th>Lain-lain</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<th>Pengguna:</th>
+				<td><input value="" id="melayuDewasaPenggunaSemasa" size="4" type=text disabled=true /></td>
+				<td><input value="" id="cinaDewasaPenggunaSemasa" size="4" type=text disabled=true /></td>
+				<td><input value="" id="indiaDewasaPenggunaSemasa" size="4" type=text disabled=true /></td>
+				<td><input value="" id="lainlainDewasaPenggunaSemasa" size="4" type=text disabled=true /></td>
+			</tr>
+			<tr>
+				<th>Pengunjung:</th>
+				<td><input value="" id="melayuDewasaPengunjungSemasa" size="4" type=text disabled=true /></td>
+				<td><input value="" id="cinaDewasaPengunjungSemasa" size="4" type=text disabled=true /></td>
+				<td><input value="" id="indiaDewasaPengunjungSemasa" size="4" type=text disabled=true /></td>
+				<td><input value="" id="lainlainDewasaPengunjungSemasa" size="4" type=text disabled=true /></td>
+			</tr>
+			<tr>
+				<th>Ahli Baru</th>
+				<td><input value="" id="melayuDewasaAhliBaruSemasa" size="4" type=text disabled=true /></td>
+				<td><input value="" id="cinaDewasaAhliBaruSemasa" size="4" type=text disabled=true /></td>
+				<td><input value="" id="indiaDewasaAhliBaruSemasa" size="4" type=text disabled=true /></td>
+				<td><input value="" id="lainlainDewasaAhliBaruSemasa" size="4" type=text disabled=true /></td>
+			</tr>
+		</tbody>
+	</table>
+
+
+
+
+	<script>
+		//load value masuk input text semasa
+		document.getElementById("melayuBeliaPenggunaSemasa").value = db.get(`${tahun}.${bulan}.${hari}.belia.pengguna.melayu`).value();
+		document.getElementById("melayuBeliaPengunjungSemasa").value = db.get(`${tahun}.${bulan}.${hari}.belia.pengunjung.melayu`).value();
+		document.getElementById("melayuBeliaAhliBaruSemasa").value = db.get(`${tahun}.${bulan}.${hari}.belia.ahliBaru.melayu`).value();
+
+		document.getElementById("cinaBeliaPenggunaSemasa").value = db.get(`${tahun}.${bulan}.${hari}.belia.pengguna.cina`).value();
+		document.getElementById("cinaBeliaPengunjungSemasa").value = db.get(`${tahun}.${bulan}.${hari}.belia.pengunjung.cina`).value();
+		document.getElementById("cinaBeliaAhliBaruSemasa").value = db.get(`${tahun}.${bulan}.${hari}.belia.ahliBaru.cina`).value();
+
+		document.getElementById("indiaBeliaPenggunaSemasa").value = db.get(`${tahun}.${bulan}.${hari}.belia.pengguna.india`).value();
+		document.getElementById("indiaBeliaPengunjungSemasa").value = db.get(`${tahun}.${bulan}.${hari}.belia.pengunjung.india`).value();
+		document.getElementById("indiaBeliaAhliBaruSemasa").value = db.get(`${tahun}.${bulan}.${hari}.belia.ahliBaru.india`).value();
+
+		document.getElementById("lainlainBeliaPenggunaSemasa").value = db.get(`${tahun}.${bulan}.${hari}.belia.pengguna.lainlain`).value();
+		document.getElementById("lainlainBeliaPengunjungSemasa").value = db.get(`${tahun}.${bulan}.${hari}.belia.pengunjung.lainlain`).value();
+		document.getElementById("lainlainBeliaAhliBaruSemasa").value = db.get(`${tahun}.${bulan}.${hari}.belia.ahliBaru.lainlain`).value();
+
+
+		document.getElementById("melayuDewasaPenggunaSemasa").value = db.get(`${tahun}.${bulan}.${hari}.dewasa.pengguna.melayu`).value();
+		document.getElementById("melayuDewasaPengunjungSemasa").value = db.get(`${tahun}.${bulan}.${hari}.dewasa.pengunjung.melayu`).value();
+		document.getElementById("melayuDewasaAhliBaruSemasa").value = db.get(`${tahun}.${bulan}.${hari}.dewasa.ahliBaru.melayu`).value();
+
+		document.getElementById("cinaDewasaPenggunaSemasa").value = db.get(`${tahun}.${bulan}.${hari}.dewasa.pengguna.cina`).value();
+		document.getElementById("cinaDewasaPengunjungSemasa").value = db.get(`${tahun}.${bulan}.${hari}.dewasa.pengunjung.cina`).value();
+		document.getElementById("cinaDewasaAhliBaruSemasa").value = db.get(`${tahun}.${bulan}.${hari}.dewasa.ahliBaru.cina`).value();
+
+		document.getElementById("indiaDewasaPenggunaSemasa").value = db.get(`${tahun}.${bulan}.${hari}.dewasa.pengguna.india`).value();
+		document.getElementById("indiaDewasaPengunjungSemasa").value = db.get(`${tahun}.${bulan}.${hari}.dewasa.pengunjung.india`).value();
+		document.getElementById("indiaDewasaAhliBaruSemasa").value = db.get(`${tahun}.${bulan}.${hari}.dewasa.ahliBaru.india`).value();
+
+
+		document.getElementById("lainlainDewasaPenggunaSemasa").value = db.get(`${tahun}.${bulan}.${hari}.dewasa.pengguna.lainlain`).value();
+		document.getElementById("lainlainDewasaPengunjungSemasa").value = db.get(`${tahun}.${bulan}.${hari}.dewasa.pengunjung.lainlain`).value();
+		document.getElementById("lainlainDewasaAhliBaruSemasa").value = db.get(`${tahun}.${bulan}.${hari}.dewasa.ahliBaru.lainlain`).value();
+
+
+		document.write(today);
+
+
+	</script>
+
+	<script>
+		// You can also require other files to run in this process
+		require('./renderer.js')
+	</script>
+	<style>
+
+		input[type=number]::-webkit-inner-spin-button {
+		opacity: 1;
+		height: 80px;
+	}
+	.btn{border: none;
+    color: white;
+    padding: 7px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+	width: 120px;
+	}
+	</style>
+	<p></p>
+	<div style="text-align:center;">
+		<select style=" font-size: 15px;text-align: center;height: 60px; width:130px;" id="userType" style="overflow:auto"
+		 size="3">
+			<option selected value="pengguna">PENGGUNA</option>
+			<option value="pengunjung">PENGUNJUNG</option>
+			<option value="ahliBaru">AHLI BARU</option>
+		</select>&nbsp;&nbsp;&nbsp;
+		<input style="text-align: center; color: transparent; text-shadow: 0 0 0 #2196f3; height:65px; width: 125px; font-size:50pt;"
+		 id="bilNakUpdate" type="number" min="-10" max="99" value="1" onkeydown="return false" />
+		<div>
+			<p><input value="" id="lastUpdate1" size="30" type=text disabled=true /></p>
+			<p></p><input value="" id="lastUpdate2" size="30" type=text disabled=true /></p>
+			<p><input value="" id="lastUpdate3" size="30" type=text disabled=true /></p>
+		</div>
+		<p></p>
+	</div>
+
+
+
+	<table style="text-align:center;" width="100%">
+
+		<col style="width:25%">
+		<col style="width:25%">
+		<col style="width:25%">
+		<col style="width:25%">
+		<thead>
+			<tr>
+
+				<th>MELAYU</th>
+				<th>CINA</th>
+				<th>INDIA</th>
+				<th>LAIN-LAIN</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+
+				<td><button class="btn" style=" background-color: #4CAF50;" onclick="new updateData(document.getElementById('userType').value,'melayu','belia')">BELIA</button></td>
+				<td><button class="btn" style=" background-color: #FF5733;" onclick="new updateData(document.getElementById('userType').value,'cina','belia')">BELIA</button></td>
+				<td><button class="btn" style=" background-color: #0000FF;" onclick="new updateData(document.getElementById('userType').value,'india','belia')">BELIA</button></td>
+				<td><button class="btn" style=" background-color: #FFC300;" onclick="new updateData(document.getElementById('userType').value,'lainlain','belia')">BELIA</button></td>
+			</tr>
+			<tr>
+
+				<td><button class="btn" style=" background-color: #4CAF50;" onclick="new updateData(document.getElementById('userType').value,'melayu','dewasa')">DEWASA</button></td>
+				<td><button class="btn" style=" background-color: #FF5733;" onclick="new updateData(document.getElementById('userType').value,'cina','dewasa')">DEWASA</button></td>
+				<td><button class="btn" style=" background-color: #0000FF;" onclick="new updateData(document.getElementById('userType').value,'india','dewasa')">DEWASA</button></td>
+				<td><button class="btn" style=" background-color: #FFC300;" onclick="new updateData(document.getElementById('userType').value,'lainlain','dewasa')">DEWASA</button></td>
+			</tr>
+
+		</tbody>
+	</table>
+
+</body>
+
+</html>
