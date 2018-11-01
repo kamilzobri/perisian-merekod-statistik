@@ -1316,16 +1316,16 @@
       "1": {
         "belia": {
           "pengunjung": {
-            "melayu": 36,
-            "cina": 5,
-            "india": 3,
-            "lainlain": 3
+            "melayu": 83,
+            "cina": 13,
+            "india": 14,
+            "lainlain": 14
           },
           "pengguna": {
-            "melayu": 35,
-            "cina": 4,
-            "india": 3,
-            "lainlain": 3
+            "melayu": 82,
+            "cina": 12,
+            "india": 14,
+            "lainlain": 14
           },
           "ahliBaru": {
             "melayu": 1,
@@ -1336,16 +1336,16 @@
         },
         "dewasa": {
           "pengunjung": {
-            "melayu": 17,
-            "cina": 3,
-            "india": 14,
-            "lainlain": 10
+            "melayu": 27,
+            "cina": 12,
+            "india": 21,
+            "lainlain": 17
           },
           "pengguna": {
-            "melayu": 17,
-            "cina": 3,
-            "india": 14,
-            "lainlain": 9
+            "melayu": 24,
+            "cina": 12,
+            "india": 21,
+            "lainlain": 16
           },
           "ahliBaru": {
             "melayu": 1,
