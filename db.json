@@ -1,6 +1,6 @@
 {
   "2018": {
-    "10": {
+    "11": {
       "1": {
         "belia": {
           "pengunjung": {
@@ -1312,7 +1312,7 @@
         }
       }
     },
-    "11": {
+    "12": {
       "1": {
         "belia": {
           "pengunjung": {
@@ -1352,6 +1352,48 @@
             "cina": 14,
             "india": 2,
             "lainlain": 1
+          }
+        }
+      },
+      "7": {
+        "belia": {
+          "pengunjung": {
+            "melayu": 0,
+            "cina": 0,
+            "india": 0,
+            "lainlain": 0
+          },
+          "pengguna": {
+            "melayu": 0,
+            "cina": 0,
+            "india": 0,
+            "lainlain": 0
+          },
+          "ahliBaru": {
+            "melayu": 0,
+            "cina": 0,
+            "india": 0,
+            "lainlain": 0
+          }
+        },
+        "dewasa": {
+          "pengunjung": {
+            "melayu": 0,
+            "cina": 0,
+            "india": 0,
+            "lainlain": 0
+          },
+          "pengguna": {
+            "melayu": 0,
+            "cina": 0,
+            "india": 0,
+            "lainlain": 0
+          },
+          "ahliBaru": {
+            "melayu": 0,
+            "cina": 0,
+            "india": 0,
+            "lainlain": 0
           }
         }
       }
