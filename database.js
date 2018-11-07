@@ -55,42 +55,42 @@ switch (bulan) {
 today = hari + ' ' + bulanLetter + ' ' + tahun;
 
 
-
 if (!db.has(`${tahun}`).value()) {
   db.set(`${tahun}`, {}).write()
 }
 if (!db.has(`${tahun}.${bulan}`).value()) {
   db.set(`${tahun}.${bulan}`, {}).write()
+  for (var h = 1; h < 32; h++) {
+    db.set(`${tahun}.${bulan}.${h}`, {}).write()
+    db.set(`${tahun}.${bulan}.${h}.belia.pengunjung.melayu`, 0).write()
+    db.set(`${tahun}.${bulan}.${h}.dewasa.pengunjung.melayu`, 0).write()
+    db.set(`${tahun}.${bulan}.${h}.belia.pengunjung.cina`, 0).write()
+    db.set(`${tahun}.${bulan}.${h}.dewasa.pengunjung.cina`, 0).write()
+    db.set(`${tahun}.${bulan}.${h}.belia.pengunjung.india`, 0).write()
+    db.set(`${tahun}.${bulan}.${h}.dewasa.pengunjung.india`, 0).write()
+    db.set(`${tahun}.${bulan}.${h}.belia.pengunjung.lainlain`, 0).write()
+    db.set(`${tahun}.${bulan}.${h}.dewasa.pengunjung.lainlain`, 0).write()
+  
+    db.set(`${tahun}.${bulan}.${h}.belia.pengguna.melayu`, 0).write()
+    db.set(`${tahun}.${bulan}.${h}.dewasa.pengguna.melayu`, 0).write()
+    db.set(`${tahun}.${bulan}.${h}.belia.pengguna.cina`, 0).write()
+    db.set(`${tahun}.${bulan}.${h}.dewasa.pengguna.cina`, 0).write()
+    db.set(`${tahun}.${bulan}.${h}.belia.pengguna.india`, 0).write()
+    db.set(`${tahun}.${bulan}.${h}.dewasa.pengguna.india`, 0).write()
+    db.set(`${tahun}.${bulan}.${h}.belia.pengguna.lainlain`, 0).write()
+    db.set(`${tahun}.${bulan}.${h}.dewasa.pengguna.lainlain`, 0).write()
+  
+    db.set(`${tahun}.${bulan}.${h}.belia.ahliBaru.melayu`, 0).write()
+    db.set(`${tahun}.${bulan}.${h}.dewasa.ahliBaru.melayu`, 0).write()
+    db.set(`${tahun}.${bulan}.${h}.belia.ahliBaru.cina`, 0).write()
+    db.set(`${tahun}.${bulan}.${h}.dewasa.ahliBaru.cina`, 0).write()
+    db.set(`${tahun}.${bulan}.${h}.belia.ahliBaru.india`, 0).write()
+    db.set(`${tahun}.${bulan}.${h}.dewasa.ahliBaru.india`, 0).write()
+    db.set(`${tahun}.${bulan}.${h}.belia.ahliBaru.lainlain`, 0).write()
+    db.set(`${tahun}.${bulan}.${h}.dewasa.ahliBaru.lainlain`, 0).write()
+  }
 }
-if (!db.has(`${tahun}.${bulan}.${hari}`).value()) {
-  db.set(`${tahun}.${bulan}.${hari}`, {}).write()
-  db.set(`${tahun}.${bulan}.${hari}.belia.pengunjung.melayu`, 0).write()
-  db.set(`${tahun}.${bulan}.${hari}.dewasa.pengunjung.melayu`, 0).write()
-  db.set(`${tahun}.${bulan}.${hari}.belia.pengunjung.cina`, 0).write()
-  db.set(`${tahun}.${bulan}.${hari}.dewasa.pengunjung.cina`, 0).write()
-  db.set(`${tahun}.${bulan}.${hari}.belia.pengunjung.india`, 0).write()
-  db.set(`${tahun}.${bulan}.${hari}.dewasa.pengunjung.india`, 0).write()
-  db.set(`${tahun}.${bulan}.${hari}.belia.pengunjung.lainlain`, 0).write()
-  db.set(`${tahun}.${bulan}.${hari}.dewasa.pengunjung.lainlain`, 0).write()
 
-  db.set(`${tahun}.${bulan}.${hari}.belia.pengguna.melayu`, 0).write()
-  db.set(`${tahun}.${bulan}.${hari}.dewasa.pengguna.melayu`, 0).write()
-  db.set(`${tahun}.${bulan}.${hari}.belia.pengguna.cina`, 0).write()
-  db.set(`${tahun}.${bulan}.${hari}.dewasa.pengguna.cina`, 0).write()
-  db.set(`${tahun}.${bulan}.${hari}.belia.pengguna.india`, 0).write()
-  db.set(`${tahun}.${bulan}.${hari}.dewasa.pengguna.india`, 0).write()
-  db.set(`${tahun}.${bulan}.${hari}.belia.pengguna.lainlain`, 0).write()
-  db.set(`${tahun}.${bulan}.${hari}.dewasa.pengguna.lainlain`, 0).write()
-
-  db.set(`${tahun}.${bulan}.${hari}.belia.ahliBaru.melayu`, 0).write()
-  db.set(`${tahun}.${bulan}.${hari}.dewasa.ahliBaru.melayu`, 0).write()
-  db.set(`${tahun}.${bulan}.${hari}.belia.ahliBaru.cina`, 0).write()
-  db.set(`${tahun}.${bulan}.${hari}.dewasa.ahliBaru.cina`, 0).write()
-  db.set(`${tahun}.${bulan}.${hari}.belia.ahliBaru.india`, 0).write()
-  db.set(`${tahun}.${bulan}.${hari}.dewasa.ahliBaru.india`, 0).write()
-  db.set(`${tahun}.${bulan}.${hari}.belia.ahliBaru.lainlain`, 0).write()
-  db.set(`${tahun}.${bulan}.${hari}.dewasa.ahliBaru.lainlain`, 0).write()
-}
 
 function updateData(userType, userRace, usia) {
   jumlahTambah = +document.getElementById('bilNakUpdate').value;
