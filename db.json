@@ -256,36 +256,36 @@
       "7": {
         "belia": {
           "pengunjung": {
-            "melayu": 70,
-            "cina": 139,
-            "india": 34,
-            "lainlain": 32
+            "melayu": 72,
+            "cina": 142,
+            "india": 37,
+            "lainlain": 35
           },
           "pengguna": {
-            "melayu": 70,
-            "cina": 118,
-            "india": 31,
-            "lainlain": 26
+            "melayu": 72,
+            "cina": 121,
+            "india": 34,
+            "lainlain": 29
           },
           "ahliBaru": {
             "melayu": 27,
-            "cina": 12,
+            "cina": 24,
             "india": 16,
             "lainlain": 26
           }
         },
         "dewasa": {
           "pengunjung": {
-            "melayu": 67,
-            "cina": 44,
-            "india": 45,
-            "lainlain": 68
+            "melayu": 68,
+            "cina": 46,
+            "india": 48,
+            "lainlain": 70
           },
           "pengguna": {
-            "melayu": 50,
-            "cina": 35,
-            "india": 38,
-            "lainlain": 62
+            "melayu": 51,
+            "cina": 37,
+            "india": 41,
+            "lainlain": 64
           },
           "ahliBaru": {
             "melayu": 25,
