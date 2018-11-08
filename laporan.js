@@ -55,11 +55,12 @@ today = hari + ' ' + bulanLetter + ' ' + tahun;
 
 
 //generate file excel
-var bulanDipilih = 11;// kena buat option untuk pilih
-var tahunDipilih = 2018;// kena buat option untuk pilih
 
-function cetakExcel(path){
+function cetakExcel(path,hariIni,bulanDipilih,tahunDipilih){
     this.path = path;
+    this.hariIni = hariIni;
+    this.bulanDipilih = bulanDipilih;
+    this.tahunDipilih = tahunDipilih;
 workbook.xlsx.readFile('formatOriginalJANGANEDIT.xlsx')
     .then(function () {
 
@@ -187,7 +188,7 @@ workbook.xlsx.readFile('formatOriginalJANGANEDIT.xlsx')
 
         }
         worksheet.getRow().commit();
-        return workbook.xlsx.writeFile(`${path}/statistik bulan ${bulanLetter} ${tahun}.xlsx`);
+        return workbook.xlsx.writeFile(`${path}/statistik bulanan ${hariIni}hb ${bulanLetter} ${tahun}.xlsx`);
 
 
 

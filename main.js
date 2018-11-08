@@ -1,67 +1,78 @@
+const low = require('lowdb')
+const FileSync = require('lowdb/adapters/FileSync')
+const adapter = new FileSync('db.json')
+const db = low(adapter)
+
+
+
+
 // Modules to control application life and create native browser window
-const {app, BrowserWindow, Menu, dialog} = require('electron')
+const { app, BrowserWindow, Menu, dialog } = require('electron')
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
 
-function createWindow () {
+function createWindow() {
   // Create the browser window.
-  mainWindow = new BrowserWindow({width: 600, height: 400,resizable:false,maximizable:false, alwaysOnTop:true})
-  
+  mainWindow = new BrowserWindow({ width: 600, height: 400, resizable: false, maximizable: false, alwaysOnTop: true })
+
   // and load the index.html of the app.
   mainWindow.loadFile('index.html')
 
-  
+
   const template = [
     {
       label: 'Edit',
       submenu: [
-        {role: 'undo'},
-        {role: 'redo'},
-        {type: 'separator'},
-        {role: 'cut'},
-        {role: 'copy'},
-        {role: 'paste'},
-        {role: 'pasteandmatchstyle'},
-        {role: 'delete'},
-        {role: 'selectall'}
+        { role: 'undo' },
+        { role: 'redo' },
+        { type: 'separator' },
+        { role: 'cut' },
+        { role: 'copy' },
+        { role: 'paste' },
+        { role: 'pasteandmatchstyle' },
+        { role: 'delete' },
+        { role: 'selectall' }
       ]
     },
     {
       label: 'View',
       submenu: [
-        {role: 'reload'},
-        {role: 'forcereload'},
-        {role: 'toggledevtools'},
-        {type: 'separator'},
-        {role: 'resetzoom'},
-        {role: 'zoomin'},
-        {role: 'zoomout'},
-        {type: 'separator'},
-        {role: 'togglefullscreen'}
+        { role: 'reload' },
+        { role: 'forcereload' },
+        { role: 'toggledevtools' },
+        { type: 'separator' },
+        { role: 'resetzoom' },
+        { role: 'zoomin' },
+        { role: 'zoomout' },
+        { type: 'separator' },
+        { role: 'togglefullscreen' }
       ]
     },
     {
-      role: 'window',
+      label: 'Laporan',
       submenu: [
-        {role: 'minimize'},
-        {role: 'close'}
+        {
+          label: 'Hasilkan Laporan Hari',
+          click() {
+            var today = new Date();
+            var hari = today.getDate();
+            var bulan = today.getMonth() + 1; //January is 0!
+            var tahun = today.getFullYear();
+            const pathArray = dialog.showOpenDialog({ properties: ['openDirectory'], buttonLabel: 'Hasilkan', title: 'Sila Pilih Lokasi untuk Hasilkan Laporan' })
+            require('./laporan.js').cetakExcel(pathArray, hari, bulan, tahun)
+          }
+
+
+        }
       ]
     },
-    {
-         label: 'Hasilkan Laporan',
-         click(){
-           const pathArray = dialog.showOpenDialog({properties: ['openDirectory'],buttonLabel:'Hasilkan',title:'Sila Pilih Lokasi untuk Hasilkan Laporan'})
-           require('./laporan.js').cetakExcel(pathArray)
-        }
-        
-      
-    }
+
   ]
-  
-const menu= Menu.buildFromTemplate(template);
-Menu.setApplicationMenu(menu);
+
+  const menu = Menu.buildFromTemplate(template);
+  Menu.setApplicationMenu(menu);
 
 
 
