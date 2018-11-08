@@ -10,7 +10,66 @@
 <body style="user-select: none;">
 	<script src="database.js">
 	</script>
-	<button onclick="cetakExcel()">Cetak</button>
+
+	<p></p>
+	<div style="  display:flex;
+	justify-content:space-between;
+	align-items:stretch;
+	flex-wrap:nowrap;
+	padding:10px;">
+		<div><select style=" font-size: 15px;text-align: center;height: 60px; width:130px;" id="userType" style="overflow:auto"
+			 size="3">
+				<option selected value="pengguna">PENGGUNA</option>
+				<option value="pengunjung">PENGUNJUNG</option>
+				<option value="ahliBaru">AHLI BARU</option>
+			</select>
+			<input style="text-align: center; color: transparent; text-shadow: 0 0 0 #2196f3; height:60px; width: 125px; font-size:50pt;"
+			 id="bilNakUpdate" type="number" min="-10" max="99" value="1" onkeydown="return false" /></div>
+		<div>
+			<input value="" id="lastUpdate1" size="30" type=text disabled=true />
+			<p style="margin-top: 0.1em; margin-bottom: 0.1em;"><input value="" id="lastUpdate2" size="30" type=text disabled=true /></p>
+			<input value="" id="lastUpdate3" size="30" type=text disabled=true />
+		</div>
+	</div>
+
+
+
+	<table style="text-align:center;" width="100%">
+
+		<col style="width:25%">
+		<col style="width:25%">
+		<col style="width:25%">
+		<col style="width:25%">
+		<thead>
+			<tr>
+
+				<th>MELAYU</th>
+				<th>CINA</th>
+				<th>INDIA</th>
+				<th>LAIN-LAIN</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+
+				<td><button class="btn" style=" background-color: #4CAF50;" onclick="new updateData(document.getElementById('userType').value,'melayu','belia')">BELIA</button></td>
+				<td><button class="btn" style=" background-color: #FF5733;" onclick="new updateData(document.getElementById('userType').value,'cina','belia')">BELIA</button></td>
+				<td><button class="btn" style=" background-color: #0000FF;" onclick="new updateData(document.getElementById('userType').value,'india','belia')">BELIA</button></td>
+				<td><button class="btn" style=" background-color: #FFC300;" onclick="new updateData(document.getElementById('userType').value,'lainlain','belia')">BELIA</button></td>
+			</tr>
+			<tr>
+
+				<td><button class="btn" style=" background-color: #4CAF50;" onclick="new updateData(document.getElementById('userType').value,'melayu','dewasa')">DEWASA</button></td>
+				<td><button class="btn" style=" background-color: #FF5733;" onclick="new updateData(document.getElementById('userType').value,'cina','dewasa')">DEWASA</button></td>
+				<td><button class="btn" style=" background-color: #0000FF;" onclick="new updateData(document.getElementById('userType').value,'india','dewasa')">DEWASA</button></td>
+				<td><button class="btn" style=" background-color: #FFC300;" onclick="new updateData(document.getElementById('userType').value,'lainlain','dewasa')">DEWASA</button></td>
+			</tr>
+
+		</tbody>
+	</table>
+
+
+
 	Belia<table border="1" width="100%">
 		<col style="width:20%">
 		<col style="width:20%">
@@ -132,82 +191,28 @@
 		document.getElementById("lainlainDewasaAhliBaruSemasa").value = db.get(`${tahun}.${bulan}.${hari}.dewasa.ahliBaru.lainlain`).value();
 
 
-		document.write(today);
+
 
 
 	</script>
 
 
 	<style>
+		input[type=number]::-webkit-inner-spin-button {
+			opacity: 1;
+		}
 
-		input[type=number]::-webkit-inner-spin-button {opacity: 1;}
-	.btn{border: none;
-    color: white;
-    padding: 7px 16px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-	width: 120px;
-	}
+		.btn {
+			border: none;
+			color: white;
+			padding: 7px 16px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			width: 120px;
+		}
 	</style>
-	<p></p>
-	<div style="  display:flex;
-	justify-content:space-between;
-	align-items:stretch;
-	flex-wrap:nowrap;
-	padding:10px;">
-		<div><select style=" font-size: 15px;text-align: center;height: 60px; width:130px;" id="userType" style="overflow:auto"
-			 size="3">
-				<option selected value="pengguna">PENGGUNA</option>
-				<option value="pengunjung">PENGUNJUNG</option>
-				<option value="ahliBaru">AHLI BARU</option>
-			</select>
-		<input style="text-align: center; color: transparent; text-shadow: 0 0 0 #2196f3; height:60px; width: 125px; font-size:50pt;"
-			 id="bilNakUpdate" type="number" min="-10" max="99" value="1" onkeydown="return false" /></div>
-		<div>
-			<input value="" id="lastUpdate1" size="30" type=text disabled=true />
-			<p style="margin-top: 0.1em; margin-bottom: 0.1em;"><input value="" id="lastUpdate2" size="30" type=text disabled=true /></p>
-			<input value="" id="lastUpdate3" size="30" type=text disabled=true />
-		</div>
-	</div>
-
-
-
-	<table style="text-align:center;" width="100%">
-
-		<col style="width:25%">
-		<col style="width:25%">
-		<col style="width:25%">
-		<col style="width:25%">
-		<thead>
-			<tr>
-
-				<th>MELAYU</th>
-				<th>CINA</th>
-				<th>INDIA</th>
-				<th>LAIN-LAIN</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-
-				<td><button class="btn" style=" background-color: #4CAF50;" onclick="new updateData(document.getElementById('userType').value,'melayu','belia')">BELIA</button></td>
-				<td><button class="btn" style=" background-color: #FF5733;" onclick="new updateData(document.getElementById('userType').value,'cina','belia')">BELIA</button></td>
-				<td><button class="btn" style=" background-color: #0000FF;" onclick="new updateData(document.getElementById('userType').value,'india','belia')">BELIA</button></td>
-				<td><button class="btn" style=" background-color: #FFC300;" onclick="new updateData(document.getElementById('userType').value,'lainlain','belia')">BELIA</button></td>
-			</tr>
-			<tr>
-
-				<td><button class="btn" style=" background-color: #4CAF50;" onclick="new updateData(document.getElementById('userType').value,'melayu','dewasa')">DEWASA</button></td>
-				<td><button class="btn" style=" background-color: #FF5733;" onclick="new updateData(document.getElementById('userType').value,'cina','dewasa')">DEWASA</button></td>
-				<td><button class="btn" style=" background-color: #0000FF;" onclick="new updateData(document.getElementById('userType').value,'india','dewasa')">DEWASA</button></td>
-				<td><button class="btn" style=" background-color: #FFC300;" onclick="new updateData(document.getElementById('userType').value,'lainlain','dewasa')">DEWASA</button></td>
-			</tr>
-
-		</tbody>
-	</table>
-
 </body>
 
 </html>
