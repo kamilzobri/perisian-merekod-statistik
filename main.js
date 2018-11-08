@@ -1,5 +1,5 @@
 // Modules to control application life and create native browser window
-const {app, BrowserWindow, Menu} = require('electron')
+const {app, BrowserWindow, Menu, dialog} = require('electron')
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -12,7 +12,7 @@ function createWindow () {
   // and load the index.html of the app.
   mainWindow.loadFile('index.html')
 
-
+  
   const template = [
     {
       label: 'Edit',
@@ -50,13 +50,13 @@ function createWindow () {
       ]
     },
     {
-      role: 'help',
-      submenu: [
-        {
-          label: 'Hasilkan Laporan',
-          click () { require('./laporan.js').cetakExcel() }
+         label: 'Hasilkan Laporan',
+         click(){
+           const pathArray = dialog.showOpenDialog({properties: ['openDirectory'],buttonLabel:'Hasilkan',title:'Sila Pilih Lokasi untuk Hasilkan Laporan'})
+           require('./laporan.js').cetakExcel(pathArray)
         }
-      ]
+        
+      
     }
   ]
   
