@@ -299,15 +299,15 @@
         "belia": {
           "pengunjung": {
             "melayu": 32,
-            "cina": 25,
-            "india": 36,
-            "lainlain": 36
+            "cina": 27,
+            "india": 39,
+            "lainlain": 38
           },
           "pengguna": {
             "melayu": 29,
-            "cina": 18,
-            "india": 29,
-            "lainlain": 31
+            "cina": 20,
+            "india": 32,
+            "lainlain": 33
           },
           "ahliBaru": {
             "melayu": 2,
@@ -319,15 +319,15 @@
         "dewasa": {
           "pengunjung": {
             "melayu": 28,
-            "cina": 33,
-            "india": 64,
-            "lainlain": 49
+            "cina": 36,
+            "india": 67,
+            "lainlain": 51
           },
           "pengguna": {
             "melayu": 23,
-            "cina": 27,
-            "india": 57,
-            "lainlain": 43
+            "cina": 30,
+            "india": 60,
+            "lainlain": 45
           },
           "ahliBaru": {
             "melayu": 1,

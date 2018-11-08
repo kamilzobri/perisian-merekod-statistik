@@ -83,7 +83,9 @@ function lastUpdate(value) {
     minit = '0' + minit;
   }
 
-
+if(jam > 12){
+  jam = jam - 12;
+}
   masaSekarang = jam + ':' + minit;
 
   document.getElementById("lastUpdate3").value = document.getElementById("lastUpdate2").value;
