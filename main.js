@@ -25,32 +25,6 @@ function createWindow() {
 
   const template = [
     {
-      label: 'Edit',
-      submenu: [
-        { role: 'undo' },
-        { role: 'redo' },
-        { type: 'separator' },
-        { role: 'cut' },
-        { role: 'copy' },
-        { role: 'paste' },
-        { role: 'pasteandmatchstyle' },
-        { role: 'delete' },
-        { role: 'selectall' }
-      ]
-    },
-    {
-      label: 'View',
-      submenu: [
-        { role: 'reload' },
-        { role: 'forcereload' },
-        { role: 'toggledevtools' },
-        { type: 'separator' },
-        { role: 'resetzoom' },
-        { role: 'zoomin' },
-        { role: 'zoomout' },
-        { type: 'separator' },
-        { role: 'togglefullscreen' }
-      ]
     },
     {
       label: 'Laporan',
@@ -59,18 +33,18 @@ function createWindow() {
           label: 'Hasilkan Laporan Hari ini',
           click() {
             var today = new Date();
-            var hari = today.getDate();
+            var hariIni = today.getDate();
             var bulan = today.getMonth() + 1; //January is 0!
             var tahun = today.getFullYear();
             const pathArray = dialog.showOpenDialog({ properties: ['openDirectory'], buttonLabel: 'Hasilkan', title: 'Sila Pilih Lokasi untuk Hasilkan Laporan' })
-            require('./laporan.js').cetakExcel(pathArray, hari, bulan, tahun)
+            require('./laporan.js').cetakExcel(pathArray, hariIni, bulan, tahun)
           }
 
 
         },
         {
           label: 'Hasilkan Laporan bulanan',
-          submenu:[{label: 'tak dynamic menu'}],
+          submenu: [],
         }
       ]
     },
@@ -78,13 +52,103 @@ function createWindow() {
   ]
 
   //prosesing untuk buat dynamic menu untuk hasilkan mengikut tahun n bulan. x siap lagi
-for (var t = 2017; t < 2050; t++) {
- if (db.has(`${t}`).value()) {
-  template[2].submenu.push({label: 'dynamic menu'})
- }
-}
-  
- 
+  for (var t = 2017; t < 2030; t++) {
+    const x = t;
+    if (db.has(`${x}`).value()) {
+
+      template[1].submenu[1].submenu.push({
+        label: `${x}`, submenu: [
+          {
+            label: `Januari`,
+            click() {
+              const pathArray = dialog.showOpenDialog({ properties: ['openDirectory'], buttonLabel: 'Hasilkan', title: 'Sila Pilih Lokasi untuk Hasilkan Laporan' })
+              require('./laporan.js').cetakExcel(pathArray, "", 1, x)
+            }
+          },
+          {
+            label: `Februari`,
+            click() {
+              const pathArray = dialog.showOpenDialog({ properties: ['openDirectory'], buttonLabel: 'Hasilkan', title: 'Sila Pilih Lokasi untuk Hasilkan Laporan' })
+              require('./laporan.js').cetakExcel(pathArray, "", 2, x)
+            }
+          },
+          {
+            label: `Mac`,
+            click() {
+              const pathArray = dialog.showOpenDialog({ properties: ['openDirectory'], buttonLabel: 'Hasilkan', title: 'Sila Pilih Lokasi untuk Hasilkan Laporan' })
+              require('./laporan.js').cetakExcel(pathArray, "", 3, x)
+            }
+          },
+          {
+            label: `April`,
+            click() {
+              const pathArray = dialog.showOpenDialog({ properties: ['openDirectory'], buttonLabel: 'Hasilkan', title: 'Sila Pilih Lokasi untuk Hasilkan Laporan' })
+              require('./laporan.js').cetakExcel(pathArray, "", 4, x)
+            }
+          },
+          {
+            label: `Mei`,
+            click() {
+              const pathArray = dialog.showOpenDialog({ properties: ['openDirectory'], buttonLabel: 'Hasilkan', title: 'Sila Pilih Lokasi untuk Hasilkan Laporan' })
+              require('./laporan.js').cetakExcel(pathArray, "", 5, x)
+            }
+          },
+          {
+            label: `Jun`,
+            click() {
+              const pathArray = dialog.showOpenDialog({ properties: ['openDirectory'], buttonLabel: 'Hasilkan', title: 'Sila Pilih Lokasi untuk Hasilkan Laporan' })
+              require('./laporan.js').cetakExcel(pathArray, "", 6, x)
+            }
+          },
+          {
+            label: `Julai`,
+            click() {
+              const pathArray = dialog.showOpenDialog({ properties: ['openDirectory'], buttonLabel: 'Hasilkan', title: 'Sila Pilih Lokasi untuk Hasilkan Laporan' })
+              require('./laporan.js').cetakExcel(pathArray, "", 7, x)
+            }
+          },
+          {
+            label: `Ogos`,
+            click() {
+              const pathArray = dialog.showOpenDialog({ properties: ['openDirectory'], buttonLabel: 'Hasilkan', title: 'Sila Pilih Lokasi untuk Hasilkan Laporan' })
+              require('./laporan.js').cetakExcel(pathArray, "", 8, x)
+            }
+          },
+          {
+            label: `September`,
+            click() {
+              const pathArray = dialog.showOpenDialog({ properties: ['openDirectory'], buttonLabel: 'Hasilkan', title: 'Sila Pilih Lokasi untuk Hasilkan Laporan' })
+              require('./laporan.js').cetakExcel(pathArray, "", 9, x)
+            }
+          },
+          {
+            label: `Oktober`,
+            click() {
+              const pathArray = dialog.showOpenDialog({ properties: ['openDirectory'], buttonLabel: 'Hasilkan', title: 'Sila Pilih Lokasi untuk Hasilkan Laporan' })
+              require('./laporan.js').cetakExcel(pathArray, "", 10, x)
+            }
+          },
+          {
+            label: `November`,
+            click() {
+              const pathArray = dialog.showOpenDialog({ properties: ['openDirectory'], buttonLabel: 'Hasilkan', title: 'Sila Pilih Lokasi untuk Hasilkan Laporan' })
+              require('./laporan.js').cetakExcel(pathArray, "", 11, x)
+            }
+          },
+          {
+            label: `Disember`,
+            click() {
+              const pathArray = dialog.showOpenDialog({ properties: ['openDirectory'], buttonLabel: 'Hasilkan', title: 'Sila Pilih Lokasi untuk Hasilkan Laporan' })
+              require('./laporan.js').cetakExcel(pathArray, "", 12, x)
+            }
+          },
+
+        ]
+      })
+    }
+  }
+
+
   const menu = Menu.buildFromTemplate(template);
   Menu.setApplicationMenu(menu);
 
