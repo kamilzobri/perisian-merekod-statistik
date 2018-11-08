@@ -70,7 +70,7 @@ function createWindow() {
         },
         {
           label: 'Hasilkan Laporan bulanan',
-          submenu:[],
+          submenu:[{label: 'tak dynamic menu'}],
         }
       ]
     },
@@ -80,7 +80,7 @@ function createWindow() {
   //prosesing untuk buat dynamic menu untuk hasilkan mengikut tahun n bulan. x siap lagi
 for (var t = 2017; t < 2050; t++) {
  if (db.has(`${t}`).value()) {
-  template[1].submenu.push({label: 'dynamic menu'})
+  template[2].submenu.push({label: 'dynamic menu'})
  }
 }
   
