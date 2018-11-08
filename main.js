@@ -5,6 +5,8 @@ const db = low(adapter)
 
 
 
+//atas ni untuk dapatkan list tahun untuk letak dalam menu
+
 
 // Modules to control application life and create native browser window
 const { app, BrowserWindow, Menu, dialog } = require('electron')
@@ -54,7 +56,7 @@ function createWindow() {
       label: 'Laporan',
       submenu: [
         {
-          label: 'Hasilkan Laporan Hari',
+          label: 'Hasilkan Laporan Hari ini',
           click() {
             var today = new Date();
             var hari = today.getDate();
@@ -65,12 +67,24 @@ function createWindow() {
           }
 
 
+        },
+        {
+          label: 'Hasilkan Laporan bulanan',
+          submenu:[],
         }
       ]
     },
 
   ]
 
+  //prosesing untuk buat dynamic menu untuk hasilkan mengikut tahun n bulan. x siap lagi
+for (var t = 2017; t < 2050; t++) {
+ if (db.has(`${t}`).value()) {
+  template[1].submenu.push({label: 'dynamic menu'})
+ }
+}
+  
+ 
   const menu = Menu.buildFromTemplate(template);
   Menu.setApplicationMenu(menu);
 
