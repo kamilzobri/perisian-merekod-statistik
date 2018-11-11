@@ -29,7 +29,7 @@ if (!db.has(`${tahun}.${bulan}`).value()) {
     db.set(`${tahun}.${bulan}.${h}.dewasa.pengunjung.india`, 0).write()
     db.set(`${tahun}.${bulan}.${h}.belia.pengunjung.lainlain`, 0).write()
     db.set(`${tahun}.${bulan}.${h}.dewasa.pengunjung.lainlain`, 0).write()
-  
+
     db.set(`${tahun}.${bulan}.${h}.belia.pengguna.melayu`, 0).write()
     db.set(`${tahun}.${bulan}.${h}.dewasa.pengguna.melayu`, 0).write()
     db.set(`${tahun}.${bulan}.${h}.belia.pengguna.cina`, 0).write()
@@ -38,7 +38,7 @@ if (!db.has(`${tahun}.${bulan}`).value()) {
     db.set(`${tahun}.${bulan}.${h}.dewasa.pengguna.india`, 0).write()
     db.set(`${tahun}.${bulan}.${h}.belia.pengguna.lainlain`, 0).write()
     db.set(`${tahun}.${bulan}.${h}.dewasa.pengguna.lainlain`, 0).write()
-  
+
     db.set(`${tahun}.${bulan}.${h}.belia.ahliBaru.melayu`, 0).write()
     db.set(`${tahun}.${bulan}.${h}.dewasa.ahliBaru.melayu`, 0).write()
     db.set(`${tahun}.${bulan}.${h}.belia.ahliBaru.cina`, 0).write()
@@ -61,17 +61,17 @@ function updateData(userType, userRace, usia) {
   db.update(`${tahun}.${bulan}.${hari}.${usia}.${userType}.${userRace}`, n => n + jumlahTambah)
     .write()
 
+
+  document.getElementById("bilNakUpdate").value = 1;
+  document.getElementById("userType").selectedIndex = 0;
+  lastUpdate(`${userType} ${userRace} ${usia} +${jumlahTambah}`)
+  db.read()
+  document.getElementById(`${userRace + usiaUppercase + userTypeUppercase}Semasa`).value = db.get(`${tahun}.${bulan}.${hari}.${usia}.${userType}.${userRace}`).value();
   if (userType == 'pengguna') {
     db.update(`${tahun}.${bulan}.${hari}.${usia}.pengunjung.${userRace}`, n => n + jumlahTambah)
       .write()
     document.getElementById(`${userRace + usiaUppercase}PengunjungSemasa`).value = db.get(`${tahun}.${bulan}.${hari}.${usia}.pengunjung.${userRace}`).value();
   }
-  document.getElementById("bilNakUpdate").value = 1;
-  document.getElementById("userType").selectedIndex = 0;
-  lastUpdate(`${userType} ${userRace} ${usia} +${jumlahTambah}`)
-
-  document.getElementById(`${userRace + usiaUppercase + userTypeUppercase}Semasa`).value = db.get(`${tahun}.${bulan}.${hari}.${usia}.${userType}.${userRace}`).value();
-
 
 }
 
@@ -83,9 +83,9 @@ function lastUpdate(value) {
     minit = '0' + minit;
   }
 
-if(jam > 12){
-  jam = jam - 12;
-}
+  if (jam > 12) {
+    jam = jam - 12;
+  }
   masaSekarang = jam + ':' + minit;
 
   document.getElementById("lastUpdate3").value = document.getElementById("lastUpdate2").value;
