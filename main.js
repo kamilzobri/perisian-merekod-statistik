@@ -29,9 +29,10 @@ function createWindow() {
         {
           label: 'Hasilkan Laporan Hari ini',
           click() {
-            
+
             const pathArray = dialog.showOpenDialog({ properties: ['openDirectory'], buttonLabel: 'Hasilkan', title: 'Sila Pilih Lokasi untuk Hasilkan Laporan' })
-            require('./laporan.js').cetakExcel(pathArray, hariIni, bulan, tahun)
+
+            require('child_process').fork('./createExcel.js', [`${pathArray}`, `${hariIni}`, `${bulan}`, `${tahun}`])
           }
 
 
@@ -44,7 +45,10 @@ function createWindow() {
     },
 
   ]
-
+  if (tahun < 2018) {
+    tahun = 2018;
+    dialog.showErrorBox('ERROR', 'Tahun Dan Jam komputer Anda Mungkin tidak tepat')
+  }
   //prosesing untuk buat dynamic menu untuk hasilkan mengikut tahun n bulan. x siap lagi
   for (var t = 2018; t <= tahun; t++) {
     const x = t;
@@ -55,84 +59,84 @@ function createWindow() {
           label: `Januari`,
           click() {
             const pathArray = dialog.showOpenDialog({ properties: ['openDirectory'], buttonLabel: 'Hasilkan', title: 'Sila Pilih Lokasi untuk Hasilkan Laporan' })
-            require('./laporan.js').cetakExcel(pathArray, "", 1, x)
+            require('child_process').fork('./createExcel.js', [`${pathArray}`, ``, `1`, `${x}`])
           }
         },
         {
           label: `Februari`,
           click() {
             const pathArray = dialog.showOpenDialog({ properties: ['openDirectory'], buttonLabel: 'Hasilkan', title: 'Sila Pilih Lokasi untuk Hasilkan Laporan' })
-            require('./laporan.js').cetakExcel(pathArray, "", 2, x)
+            require('child_process').fork('./createExcel.js', [`${pathArray}`, ``, `2`, `${x}`])
           }
         },
         {
           label: `Mac`,
           click() {
             const pathArray = dialog.showOpenDialog({ properties: ['openDirectory'], buttonLabel: 'Hasilkan', title: 'Sila Pilih Lokasi untuk Hasilkan Laporan' })
-            require('./laporan.js').cetakExcel(pathArray, "", 3, x)
+            require('child_process').fork('./createExcel.js', [`${pathArray}`, ``, `3`, `${x}`])
           }
         },
         {
           label: `April`,
           click() {
             const pathArray = dialog.showOpenDialog({ properties: ['openDirectory'], buttonLabel: 'Hasilkan', title: 'Sila Pilih Lokasi untuk Hasilkan Laporan' })
-            require('./laporan.js').cetakExcel(pathArray, "", 4, x)
+            require('child_process').fork('./createExcel.js', [`${pathArray}`, ``, `4`, `${x}`])
           }
         },
         {
           label: `Mei`,
           click() {
             const pathArray = dialog.showOpenDialog({ properties: ['openDirectory'], buttonLabel: 'Hasilkan', title: 'Sila Pilih Lokasi untuk Hasilkan Laporan' })
-            require('./laporan.js').cetakExcel(pathArray, "", 5, x)
+            require('child_process').fork('./createExcel.js', [`${pathArray}`, ``, `5`, `${x}`])
           }
         },
         {
           label: `Jun`,
           click() {
             const pathArray = dialog.showOpenDialog({ properties: ['openDirectory'], buttonLabel: 'Hasilkan', title: 'Sila Pilih Lokasi untuk Hasilkan Laporan' })
-            require('./laporan.js').cetakExcel(pathArray, "", 6, x)
+            require('child_process').fork('./createExcel.js', [`${pathArray}`, ``, `6`, `${x}`])
           }
         },
         {
           label: `Julai`,
           click() {
             const pathArray = dialog.showOpenDialog({ properties: ['openDirectory'], buttonLabel: 'Hasilkan', title: 'Sila Pilih Lokasi untuk Hasilkan Laporan' })
-            require('./laporan.js').cetakExcel(pathArray, "", 7, x)
+            require('child_process').fork('./createExcel.js', [`${pathArray}`, ``, `7`, `${x}`])
           }
         },
         {
           label: `Ogos`,
           click() {
             const pathArray = dialog.showOpenDialog({ properties: ['openDirectory'], buttonLabel: 'Hasilkan', title: 'Sila Pilih Lokasi untuk Hasilkan Laporan' })
-            require('./laporan.js').cetakExcel(pathArray, "", 8, x)
+            require('child_process').fork('./createExcel.js', [`${pathArray}`, ``, `8`, `${x}`])
           }
         },
         {
           label: `September`,
           click() {
             const pathArray = dialog.showOpenDialog({ properties: ['openDirectory'], buttonLabel: 'Hasilkan', title: 'Sila Pilih Lokasi untuk Hasilkan Laporan' })
-            require('./laporan.js').cetakExcel(pathArray, "", 9, x)
+            require('child_process').fork('./createExcel.js', [`${pathArray}`, ``, `9`, `${x}`])
           }
         },
         {
           label: `Oktober`,
           click() {
             const pathArray = dialog.showOpenDialog({ properties: ['openDirectory'], buttonLabel: 'Hasilkan', title: 'Sila Pilih Lokasi untuk Hasilkan Laporan' })
-            require('./laporan.js').cetakExcel(pathArray, "", 10, x)
+            require('child_process').fork('./createExcel.js', [`${pathArray}`, ``, `10`, `${x}`])
           }
         },
         {
           label: `November`,
           click() {
             const pathArray = dialog.showOpenDialog({ properties: ['openDirectory'], buttonLabel: 'Hasilkan', title: 'Sila Pilih Lokasi untuk Hasilkan Laporan' })
-            require('./laporan.js').cetakExcel(pathArray, "", 11, x)
+            require('child_process').fork('./createExcel.js', [`${pathArray}`, ``, `11`, `${x}`])
           }
         },
         {
           label: `Disember`,
           click() {
             const pathArray = dialog.showOpenDialog({ properties: ['openDirectory'], buttonLabel: 'Hasilkan', title: 'Sila Pilih Lokasi untuk Hasilkan Laporan' })
-            require('./laporan.js').cetakExcel(pathArray, "", 12, x)
+            require('child_process').fork('./createExcel.js', [`${pathArray}`, ``, `12`, `${x}`])
           }
         },
 

@@ -4,7 +4,15 @@
   "description": "Perisian untuk merekod dan menghasilkan report statistik kedalam file excel",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "build": {
+    "appId": "your.id",
+    "mac": {
+      "category": "your.app.category.type"
+    }
   },
   "repository": {
     "type": "git",
@@ -17,9 +25,11 @@
   },
   "homepage": "https://github.com/kamilzobri/perisian-merekod-statistik#readme",
   "devDependencies": {
+    "electron-builder": "^20.34.0",
     "electron": "^3.0.0"
   },
   "dependencies": {
+    
     "exceljs": "^1.6.2",
     "lowdb": "^1.0.0"
   }
