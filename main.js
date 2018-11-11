@@ -1,9 +1,3 @@
-const low = require('lowdb')
-const FileSync = require('lowdb/adapters/FileSync')
-const adapter = new FileSync('db.json')
-const db = low(adapter)
-
-
 
 //atas ni untuk dapatkan list tahun untuk letak dalam menu
 
@@ -22,7 +16,10 @@ function createWindow() {
   // and load the index.html of the app.
   mainWindow.loadFile('index.html')
 
-
+  var today = new Date();
+  var hariIni = today.getDate();
+  var bulan = today.getMonth() + 1; //January is 0!
+  var tahun = today.getFullYear();
   const template = [
     {
     },
@@ -32,10 +29,7 @@ function createWindow() {
         {
           label: 'Hasilkan Laporan Hari ini',
           click() {
-            var today = new Date();
-            var hariIni = today.getDate();
-            var bulan = today.getMonth() + 1; //January is 0!
-            var tahun = today.getFullYear();
+            
             const pathArray = dialog.showOpenDialog({ properties: ['openDirectory'], buttonLabel: 'Hasilkan', title: 'Sila Pilih Lokasi untuk Hasilkan Laporan' })
             require('./laporan.js').cetakExcel(pathArray, hariIni, bulan, tahun)
           }
@@ -52,100 +46,99 @@ function createWindow() {
   ]
 
   //prosesing untuk buat dynamic menu untuk hasilkan mengikut tahun n bulan. x siap lagi
-  for (var t = 2017; t < 2030; t++) {
+  for (var t = 2018; t <= tahun; t++) {
     const x = t;
-    if (db.has(`${x}`).value()) {
 
-      template[1].submenu[1].submenu.push({
-        label: `${x}`, submenu: [
-          {
-            label: `Januari`,
-            click() {
-              const pathArray = dialog.showOpenDialog({ properties: ['openDirectory'], buttonLabel: 'Hasilkan', title: 'Sila Pilih Lokasi untuk Hasilkan Laporan' })
-              require('./laporan.js').cetakExcel(pathArray, "", 1, x)
-            }
-          },
-          {
-            label: `Februari`,
-            click() {
-              const pathArray = dialog.showOpenDialog({ properties: ['openDirectory'], buttonLabel: 'Hasilkan', title: 'Sila Pilih Lokasi untuk Hasilkan Laporan' })
-              require('./laporan.js').cetakExcel(pathArray, "", 2, x)
-            }
-          },
-          {
-            label: `Mac`,
-            click() {
-              const pathArray = dialog.showOpenDialog({ properties: ['openDirectory'], buttonLabel: 'Hasilkan', title: 'Sila Pilih Lokasi untuk Hasilkan Laporan' })
-              require('./laporan.js').cetakExcel(pathArray, "", 3, x)
-            }
-          },
-          {
-            label: `April`,
-            click() {
-              const pathArray = dialog.showOpenDialog({ properties: ['openDirectory'], buttonLabel: 'Hasilkan', title: 'Sila Pilih Lokasi untuk Hasilkan Laporan' })
-              require('./laporan.js').cetakExcel(pathArray, "", 4, x)
-            }
-          },
-          {
-            label: `Mei`,
-            click() {
-              const pathArray = dialog.showOpenDialog({ properties: ['openDirectory'], buttonLabel: 'Hasilkan', title: 'Sila Pilih Lokasi untuk Hasilkan Laporan' })
-              require('./laporan.js').cetakExcel(pathArray, "", 5, x)
-            }
-          },
-          {
-            label: `Jun`,
-            click() {
-              const pathArray = dialog.showOpenDialog({ properties: ['openDirectory'], buttonLabel: 'Hasilkan', title: 'Sila Pilih Lokasi untuk Hasilkan Laporan' })
-              require('./laporan.js').cetakExcel(pathArray, "", 6, x)
-            }
-          },
-          {
-            label: `Julai`,
-            click() {
-              const pathArray = dialog.showOpenDialog({ properties: ['openDirectory'], buttonLabel: 'Hasilkan', title: 'Sila Pilih Lokasi untuk Hasilkan Laporan' })
-              require('./laporan.js').cetakExcel(pathArray, "", 7, x)
-            }
-          },
-          {
-            label: `Ogos`,
-            click() {
-              const pathArray = dialog.showOpenDialog({ properties: ['openDirectory'], buttonLabel: 'Hasilkan', title: 'Sila Pilih Lokasi untuk Hasilkan Laporan' })
-              require('./laporan.js').cetakExcel(pathArray, "", 8, x)
-            }
-          },
-          {
-            label: `September`,
-            click() {
-              const pathArray = dialog.showOpenDialog({ properties: ['openDirectory'], buttonLabel: 'Hasilkan', title: 'Sila Pilih Lokasi untuk Hasilkan Laporan' })
-              require('./laporan.js').cetakExcel(pathArray, "", 9, x)
-            }
-          },
-          {
-            label: `Oktober`,
-            click() {
-              const pathArray = dialog.showOpenDialog({ properties: ['openDirectory'], buttonLabel: 'Hasilkan', title: 'Sila Pilih Lokasi untuk Hasilkan Laporan' })
-              require('./laporan.js').cetakExcel(pathArray, "", 10, x)
-            }
-          },
-          {
-            label: `November`,
-            click() {
-              const pathArray = dialog.showOpenDialog({ properties: ['openDirectory'], buttonLabel: 'Hasilkan', title: 'Sila Pilih Lokasi untuk Hasilkan Laporan' })
-              require('./laporan.js').cetakExcel(pathArray, "", 11, x)
-            }
-          },
-          {
-            label: `Disember`,
-            click() {
-              const pathArray = dialog.showOpenDialog({ properties: ['openDirectory'], buttonLabel: 'Hasilkan', title: 'Sila Pilih Lokasi untuk Hasilkan Laporan' })
-              require('./laporan.js').cetakExcel(pathArray, "", 12, x)
-            }
-          },
+    template[1].submenu[1].submenu.push({
+      label: `${x}`, submenu: [
+        {
+          label: `Januari`,
+          click() {
+            const pathArray = dialog.showOpenDialog({ properties: ['openDirectory'], buttonLabel: 'Hasilkan', title: 'Sila Pilih Lokasi untuk Hasilkan Laporan' })
+            require('./laporan.js').cetakExcel(pathArray, "", 1, x)
+          }
+        },
+        {
+          label: `Februari`,
+          click() {
+            const pathArray = dialog.showOpenDialog({ properties: ['openDirectory'], buttonLabel: 'Hasilkan', title: 'Sila Pilih Lokasi untuk Hasilkan Laporan' })
+            require('./laporan.js').cetakExcel(pathArray, "", 2, x)
+          }
+        },
+        {
+          label: `Mac`,
+          click() {
+            const pathArray = dialog.showOpenDialog({ properties: ['openDirectory'], buttonLabel: 'Hasilkan', title: 'Sila Pilih Lokasi untuk Hasilkan Laporan' })
+            require('./laporan.js').cetakExcel(pathArray, "", 3, x)
+          }
+        },
+        {
+          label: `April`,
+          click() {
+            const pathArray = dialog.showOpenDialog({ properties: ['openDirectory'], buttonLabel: 'Hasilkan', title: 'Sila Pilih Lokasi untuk Hasilkan Laporan' })
+            require('./laporan.js').cetakExcel(pathArray, "", 4, x)
+          }
+        },
+        {
+          label: `Mei`,
+          click() {
+            const pathArray = dialog.showOpenDialog({ properties: ['openDirectory'], buttonLabel: 'Hasilkan', title: 'Sila Pilih Lokasi untuk Hasilkan Laporan' })
+            require('./laporan.js').cetakExcel(pathArray, "", 5, x)
+          }
+        },
+        {
+          label: `Jun`,
+          click() {
+            const pathArray = dialog.showOpenDialog({ properties: ['openDirectory'], buttonLabel: 'Hasilkan', title: 'Sila Pilih Lokasi untuk Hasilkan Laporan' })
+            require('./laporan.js').cetakExcel(pathArray, "", 6, x)
+          }
+        },
+        {
+          label: `Julai`,
+          click() {
+            const pathArray = dialog.showOpenDialog({ properties: ['openDirectory'], buttonLabel: 'Hasilkan', title: 'Sila Pilih Lokasi untuk Hasilkan Laporan' })
+            require('./laporan.js').cetakExcel(pathArray, "", 7, x)
+          }
+        },
+        {
+          label: `Ogos`,
+          click() {
+            const pathArray = dialog.showOpenDialog({ properties: ['openDirectory'], buttonLabel: 'Hasilkan', title: 'Sila Pilih Lokasi untuk Hasilkan Laporan' })
+            require('./laporan.js').cetakExcel(pathArray, "", 8, x)
+          }
+        },
+        {
+          label: `September`,
+          click() {
+            const pathArray = dialog.showOpenDialog({ properties: ['openDirectory'], buttonLabel: 'Hasilkan', title: 'Sila Pilih Lokasi untuk Hasilkan Laporan' })
+            require('./laporan.js').cetakExcel(pathArray, "", 9, x)
+          }
+        },
+        {
+          label: `Oktober`,
+          click() {
+            const pathArray = dialog.showOpenDialog({ properties: ['openDirectory'], buttonLabel: 'Hasilkan', title: 'Sila Pilih Lokasi untuk Hasilkan Laporan' })
+            require('./laporan.js').cetakExcel(pathArray, "", 10, x)
+          }
+        },
+        {
+          label: `November`,
+          click() {
+            const pathArray = dialog.showOpenDialog({ properties: ['openDirectory'], buttonLabel: 'Hasilkan', title: 'Sila Pilih Lokasi untuk Hasilkan Laporan' })
+            require('./laporan.js').cetakExcel(pathArray, "", 11, x)
+          }
+        },
+        {
+          label: `Disember`,
+          click() {
+            const pathArray = dialog.showOpenDialog({ properties: ['openDirectory'], buttonLabel: 'Hasilkan', title: 'Sila Pilih Lokasi untuk Hasilkan Laporan' })
+            require('./laporan.js').cetakExcel(pathArray, "", 12, x)
+          }
+        },
 
-        ]
-      })
-    }
+      ]
+    })
+
   }
 
 

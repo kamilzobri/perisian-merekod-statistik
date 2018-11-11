@@ -10,6 +10,7 @@ var workbook = new Excel.Workbook();
 //generate file excel
 
 function cetakExcel(path, hariIni, bulanDipilih, tahunDipilih) {
+    db.read()
     this.path = path;
     this.hariIni = hariIni;
     this.bulanDipilih = bulanDipilih;
